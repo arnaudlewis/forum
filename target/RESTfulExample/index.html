@@ -1,0 +1,27 @@
+<html ng-app="app">
+  <head>
+    <title>Forum</title>
+
+      <script type="application/javascript" src="bower_components/angular/angular.min.js"></script>
+      <script type="application/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+      <script type="application/javascript" src="bower_components/jquery/jquery.min.js"></script>
+
+
+  </head>
+  <body>
+
+  <div ng-controller="MainCtrl">
+      <form ng-submit="login()" method="POST">
+          <input type="text" ng-model="username" placeholder="identifiant"/>
+          <input type="password" ng-model="password" placeholder="mot de passe"/>
+
+          <button type="submit">Connexion</button>
+      </form>
+      </div>
+
+  <script type="application/javascript" src="common/remote/index.js"></script>
+  <script type="application/javascript" src="index.js"></script>
+
+  <a href="rest/login">HelloWorldService</a>
+  </body>
+</html>
