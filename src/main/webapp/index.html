@@ -1,27 +1,31 @@
+<!doctype html>
 <html ng-app="app">
-  <head>
+<head>
     <title>Forum</title>
 
-      <script type="application/javascript" src="bower_components/angular/angular.min.js"></script>
-      <script type="application/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-      <script type="application/javascript" src="bower_components/jquery/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+</head>
+<body>
+<div>
+    <div id="navigation" ui-view="navigationView"></div>
+    <div class="container" id="content" ui-view="contentView"></div>
+    <div id="menu" ui-view="menuView"></div>
+</div>
 
 
-  </head>
-  <body>
+<script src="router.js"></script>
+<script src="common/navigation/index.js"></script>
+<script src="common/remote/index.js"></script>
+<script src="index.js"></script>
 
-  <div ng-controller="MainCtrl">
-      <form ng-submit="login()" method="POST">
-          <input type="text" ng-model="username" placeholder="identifiant"/>
-          <input type="password" ng-model="password" placeholder="mot de passe"/>
-
-          <button type="submit">Connexion</button>
-      </form>
-      </div>
-
-  <script type="application/javascript" src="common/remote/index.js"></script>
-  <script type="application/javascript" src="index.js"></script>
-
-  <a href="rest/login">HelloWorldService</a>
-  </body>
+</body>
 </html>
+

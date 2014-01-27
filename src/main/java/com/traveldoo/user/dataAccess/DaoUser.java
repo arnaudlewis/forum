@@ -15,7 +15,8 @@ public class DaoUser extends Dao<User> {
 
     private static DaoUser instance = new DaoUser();
 
-    private DaoUser() {}
+    private DaoUser() {
+    }
 
     public static DaoUser getInstance() {
         return instance;
@@ -32,7 +33,7 @@ public class DaoUser extends Dao<User> {
             t.begin();
             em.persist(obj);
             em.flush();
-            int id = obj.getId();
+            int id = obj.getId_user();
             t.commit();
             return id;
 
@@ -103,9 +104,9 @@ public class DaoUser extends Dao<User> {
 
         try {
             t.begin();
-            User user = em.find(User.class, id);
+            User responseUser = em.find(User.class, id);
             t.commit();
-            return user;
+            return responseUser;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -131,15 +132,15 @@ public class DaoUser extends Dao<User> {
             t.commit();
             return query.getResultList();
 
-        }catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
 
-        }finally {
-           if(t.isActive()) {
-               t.rollback();
-               em.close();
-           }
+        } finally {
+            if (t.isActive()) {
+                t.rollback();
+                em.close();
+            }
         }
     }
 
@@ -156,12 +157,12 @@ public class DaoUser extends Dao<User> {
             query.setParameter("password", password);
             return query.getSingleResult();
 
-        }catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
 
         } finally {
-            if(t.isActive()) {
+            if (t.isActive()) {
                 t.rollback();
                 em.close();
             }

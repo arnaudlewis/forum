@@ -12,27 +12,30 @@ import java.util.List;
  * Created by arnaud on 19/01/2014.
  */
 @Entity
-@Table (name="User")
+@Table(name = "user")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id_user;
     private String firstname;
     private String lastname;
     private String username;
     private String password;
     private String email;
     private Date birthdate;
-    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="author")
+    private Date inscription;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "author")
     private List<Subject> subjectList;
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "author")
     private List<Message> messageList;
+    private boolean admin;
 
 
-    public User() {}
+    public User() {
+    }
 
     public String getFirstname() {
         return firstname;
@@ -82,12 +85,12 @@ public class User implements Serializable {
         this.birthdate = birthdate;
     }
 
-    public int getId() {
-        return id;
+    public int getId_user() {
+        return id_user;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_user(int id) {
+        this.id_user = id;
     }
 
     public List<Subject> getSubjectList() {
@@ -104,5 +107,21 @@ public class User implements Serializable {
 
     public void setMessageList(List<Message> messageList) {
         this.messageList = messageList;
+    }
+
+    public Date getInscription() {
+        return inscription;
+    }
+
+    public void setInscription(Date inscription) {
+        this.inscription = inscription;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 }

@@ -3,6 +3,7 @@ package com.traveldoo.user.dto;
 import com.traveldoo.user.User;
 
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -13,13 +14,14 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @XmlType(name = "LoginResponseDTO")
-
+@Produces(MediaType.APPLICATION_JSON)
 public class LoginResponseDTO {
 
     private int connect;
     private User user;
 
-    public LoginResponseDTO() {}
+    public LoginResponseDTO() {
+    }
 
     public int getConnect() {
         return connect;

@@ -1,36 +1,36 @@
 package com.traveldoo.subject;
 
+import com.traveldoo.message.Message;
 import com.traveldoo.user.User;
 
 import javax.persistence.*;
 import java.util.Date;
-
-/**
- * Created by arnaud on 19/01/2014.
- */
+import java.util.List;
 
 @Entity
-@Table (name = "subject")
-
+@Table(name = "subject")
 public class Subject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int id_subject;
     private Date creationDate;
     private String title;
     @ManyToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="id_user")
     private User author;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "author")
+    private List<Message> messageList;
+    private boolean resolved;
 
     public Subject() {}
 
-    public int getId() {
-        return id;
+    public int getId_subject() {
+        return id_subject;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_subject(int id) {
+        this.id_subject = id;
     }
 
     public Date getCreationDate() {
@@ -58,4 +58,19 @@ public class Subject {
     }
 
 
+    public List<Message> getMessageList() {
+        return messageList;
+    }
+
+    public void setMessageList(List<Message> messageList) {
+        this.messageList = messageList;
+    }
+
+    public boolean isResolved() {
+        return resolved;
+    }
+
+    public void setResolved(boolean resolved) {
+        this.resolved = resolved;
+    }
 }

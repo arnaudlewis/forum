@@ -6,7 +6,9 @@ import com.traveldoo.user.dto.LoginRequestDTO;
 import com.traveldoo.user.dto.LoginResponseDTO;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import java.util.Date;
+
 
 /**
  * Created by arnaud on 19/01/2014.
@@ -15,9 +17,9 @@ import java.util.Date;
 @Path ("/login")
 public class LoginService {
 
+
     @POST
     @Path("/connect")
-    @Produces("application/json")
     public LoginResponseDTO authentication(LoginRequestDTO request) {
 
         LoginResponseDTO response = new LoginResponseDTO();
@@ -34,11 +36,10 @@ public class LoginService {
     }
 
     @POST
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/test")
     public String helloResource() {
-        String result = "Hello! It's "+new Date();
-        return result;
+        return "Hello! It's "+new Date();
     }
 
 }

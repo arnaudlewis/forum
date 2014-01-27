@@ -1,0 +1,25 @@
+@import "common/menu/index";
+@import "common/navigation/index";
+
+body {
+  background-color: #dcdcdc;
+  height: 100%;
+}
+
+#content {
+  float: left;
+  background-color: white;
+  height: 100vh;
+  width:55%;
+  margin-top: 0;
+  margin-left: 15%;
+  padding: 1em;
+}
+
+#menu {
+  height: 100vh;
+  width: 15%;
+  float:left;
+  background-color: #000000;
+  padding: 1em;
+}
