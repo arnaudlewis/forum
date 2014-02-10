@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div id="signin" ng-controller="signinCtrl">
+
+    <h1 id="title">Création d'un nouveau compte utilisateur</h1>
+    <form class="well" ng-submit="submit()">
+
+        <legend>Inscription</legend>
+
+        <input type="text" ng-model="firstname" name="firstname" placeholder="prénom" />
+        <input type="text" ng-model="lastname" name="lastname" placeholder="nom" />
+        <input type="text" ng-model="username" name="username" placeholder="identifiant" />
+        <input type="password" ng-model="password" name="password" placeholder="mot de passe" />
+        <input type="text" ng-model="email" name="email" placeholder="email" />
+        <input type="number" ng-model="age" name="age" placeholder="age" />
+        <button class="button" type="submit">Valider</button>
+
+    </form>
+</div>
+</body>
+</html>

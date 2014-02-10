@@ -1,28 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1527119817">
+  <component name="DataSourceManagerImpl" format="xml" hash="3443869202">
     <data-source source="LOCAL" name="forum local" uuid="07b266e2-a433-4382-a672-97d5f89ada6e">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/forumproject</jdbc-url>
       <user-name>root</user-name>
+      <schema-pattern>forumproject.*</schema-pattern>
       <driver-properties>
         <property name="zeroDateTimeBehavior" value="convertToNull" />
         <property name="tinyInt1isBit" value="false" />
       </driver-properties>
       <libraries />
-    </data-source>
-    <data-source source="LOCAL" name="PersistenceUnit" uuid="4d006800-22c3-4f81-956e-ea30a56f1a86">
-      <driver-ref>mysql</driver-ref>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/forumproject</jdbc-url>
-      <user-name>root</user-name>
-      <libraries>
-        <library>
-          <url>file://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.28/mysql-connector-java-5.1.28.jar</url>
-        </library>
-      </libraries>
     </data-source>
   </component>
 </project>

@@ -1,15 +1,21 @@
 package com.traveldoo.common.dataAccess;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by arnaud on 19/01/2014.
  */
 public abstract class Dao<T> {
 
-    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("PersistenceUnit");
+    static Map<String, Object> configOverrides = new HashMap<String, Object>() {{
+        put("hibernate.hbm2ddl.auto", "update");
+    }};
+    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("ForumUnit", configOverrides);
 
     public static EntityManagerFactory getEntityManagerFactory() {
         return emf;
@@ -24,7 +30,6 @@ public abstract class Dao<T> {
     public abstract T find(int id);
 
     public abstract List<T> findAll();
-
 
 
 }

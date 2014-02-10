@@ -11,26 +11,22 @@ import java.util.List;
 /**
  * Created by arnaud on 19/01/2014.
  */
-@Entity
 @Table(name = "user")
+@Entity
 public class User implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_user;
     private String firstname;
     private String lastname;
     private String username;
     private String password;
     private String email;
-    private Date birthdate;
+    private int age;
+    @Temporal(TemporalType.DATE)
     private Date inscription;
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "author")
-    private List<Subject> subjectList;
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "author")
-    private List<Message> messageList;
     private boolean admin;
 
 
@@ -77,36 +73,12 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public Date getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
-    }
-
     public int getId_user() {
         return id_user;
     }
 
     public void setId_user(int id) {
         this.id_user = id;
-    }
-
-    public List<Subject> getSubjectList() {
-        return subjectList;
-    }
-
-    public void setSubjectList(List<Subject> subjectList) {
-        this.subjectList = subjectList;
-    }
-
-    public List<Message> getMessageList() {
-        return messageList;
-    }
-
-    public void setMessageList(List<Message> messageList) {
-        this.messageList = messageList;
     }
 
     public Date getInscription() {
@@ -123,5 +95,13 @@ public class User implements Serializable {
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

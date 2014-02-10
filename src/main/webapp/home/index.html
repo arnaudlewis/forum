@@ -1,11 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<div id="home" ng-controller="homeCtrl">
+    <div id="presentation">
+        <h2>Bienvenue sur le forum</h2>
+    </div>
 
-Bienvenue sur le forum
+    <div ng-show="connect === 1" id="form-subject">
+        <form ng-submit="submit()">
+            <input type="text" id="title" name="title" ng-model="title" placeholder="titre"/>
+            <button class="btn btn-default" type="submit">Valider</button>
+        </form>
+    </div>
 
-</body>
-</html>
+
+    <div id="list">
+        <ul id="subject-list">
+            <li class="subject-item" ng-repeat="sub in subjects">
+                <div ng-click="selectSubject(sub)">
+                    <div class="title">{{sub.title}}</div>
+                    <div class="date">{{sub.creation_date}}</div>
+                    <div class="author">{{ sub.author.firstname + ' ' + sub.author.lastname }}</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

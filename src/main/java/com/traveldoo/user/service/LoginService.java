@@ -35,7 +35,7 @@ public class LoginService {
         return response;
     }
 
-    @POST
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/test")
     public String helloResource() {

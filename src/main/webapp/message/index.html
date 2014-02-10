@@ -1,0 +1,21 @@
+    <div id="message" ng-controller="messageCtrl">
+
+        <div id="answer" ng-click="answer()"></div>
+        <div id="msglist">
+            <ul id="message-list">
+                <li class="message-item" ng-repeat="msg in messages">
+                    <div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div ng-show="connect === 1" id="form-message">
+            <h3>Répondre</h3>
+            <form ng-submit="submit()">
+                <input type="text" id="title" name="title" ng-model="title" placeholder="titre"/>
+                <textarea type="text" id="content" name="content" ng-model="content" placeholder="Saisir le contenu de votre message..."></textarea>
+                <button class="btn btn-default" type="submit">Valider</button>
+            </form>
+        </div>
+    </div>

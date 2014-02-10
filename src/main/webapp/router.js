@@ -10,22 +10,34 @@ angular.module('app.router', ['ui.router'])
                 abstract: true,
                 url: "/main",
                 views: {
-                    "menuView": {
-                        templateUrl: '/common/menu/index.html'
-                    },
-                    "navigationView": {
+                    "navigationView@": {
                         templateUrl: "/common/navigation/index.html"
-                    },
-                    "contentView": {
-                        templateUrl: "/home/index.html"
                     }
                 }
             })
             .state('main.home', {
                 url: "/home",
                 views: {
-                    "contentView": {
+                    "contentView@": {
                         templateUrl: "/home/index.html"
+                    }
+                }
+            })
+
+            .state('main.home.message', {
+                url: "/messages",
+                views: {
+                    "contentView@": {
+                        templateUrl: "/message/index.html"
+                    }
+                }
+            })
+
+            .state('main.signin', {
+                url: "/signIn",
+                views: {
+                    "contentView@": {
+                        templateUrl: "/signin/index.html"
                     }
                 }
             })

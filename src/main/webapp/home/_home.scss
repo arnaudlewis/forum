@@ -1,0 +1,62 @@
+@import "../mixin";
+
+#home {
+
+  > div {
+    display: block;
+  }
+
+  > #presentation {
+    width: 80%;
+    min-height: 10em;
+    margin: 1em 10%;
+    padding: 1em;
+    border-radius: 0.3em;
+    border: 1px solid dimgray;
+
+  }
+
+  > #form-subject {
+    float: right;
+    > form {
+      display: flex;
+
+    }
+  }
+
+  > #list {
+    > #subject-list {
+
+      margin-top: 6em;
+      list-style: none;
+      padding: 0;
+
+      > .subject-item {
+        cursor: pointer;
+        margin-bottom: 1em;
+        padding: 1em;
+        width: 100%;
+        background-color: rgba(240,240,240, 0.8);
+        border: 1px solid dimgray;
+
+        > div {
+          display: flex;
+          > .title {
+            flex: 1;
+            @include ellipsis();
+          }
+
+          > .author {
+            max-width: 15em;
+          }
+
+          > .date {
+            width: 6em;
+          }
+        }
+      }
+
+    }
+  }
+
+}

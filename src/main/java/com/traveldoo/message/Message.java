@@ -4,27 +4,30 @@ import com.traveldoo.subject.Subject;
 import com.traveldoo.user.User;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by arnaud on 19/01/2014.
  */
 
-@Entity
 @Table(name = "message")
-public class Message {
+@Entity
+public class Message implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_message;
     @ManyToOne
-    @JoinColumn(name = "id_user")
+    @PrimaryKeyJoinColumn(name = "id_user")
     private User author;
     private String content;
     private String title;
+    @Temporal(TemporalType.DATE)
     private Date creation_date;
     @ManyToOne
-    @JoinColumn(name = "id_subject")
+    @PrimaryKeyJoinColumn(name = "id_subject")
     private Subject subject;
 
     public Message() {
@@ -69,4 +72,14 @@ public class Message {
     public void setCreation_date(Date creation_date) {
         this.creation_date = creation_date;
     }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+
+
 }

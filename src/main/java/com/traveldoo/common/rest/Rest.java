@@ -1,6 +1,8 @@
 package com.traveldoo.common.rest;
 
+import com.traveldoo.subject.service.SubjectService;
 import com.traveldoo.user.service.LoginService;
+import com.traveldoo.user.service.UserService;
 
 import javax.ws.rs.core.Application;
 import java.util.HashSet;
@@ -11,6 +13,8 @@ public class Rest extends Application {
 
 	public Rest() {
 		singletons.add(new LoginService());
+        singletons.add(new UserService());
+        singletons.add(new SubjectService());
 	}
 
 	@Override

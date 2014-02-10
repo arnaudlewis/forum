@@ -2,6 +2,7 @@ package com.traveldoo.subject.dataAccess;
 
 import com.traveldoo.common.dataAccess.Dao;
 import com.traveldoo.subject.Subject;
+import com.traveldoo.subject.dto.SubjectResponseDTO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

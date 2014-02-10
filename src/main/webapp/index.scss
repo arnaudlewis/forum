@@ -1,25 +1,100 @@
-@import "common/menu/index";
+@import "signin/signin";
 @import "common/navigation/index";
+@import "home/home";
+@import "message/message";
 
 body {
   background-color: #dcdcdc;
   height: 100%;
+
+  #content {
+    float: left;
+    background-color: white;
+    height: 100vh;
+    width: 70%;
+    margin-top: 0;
+    margin-left: 15%;
+    padding: 1em;
+
+
+    h1 {
+      color: dimgray;
+      font-size: 2em;
+      font-weight: bold;
+      margin: 2em;
+
+    }
+
+    h2 {
+      color: dimgray;
+      font-size: 2em;
+      font-weight: bold;
+      margin: 2em;
+      text-align: center;
+
+    }
+
+    h2 {
+      color: dimgray;
+      font-size: 1.3em;
+      font-weight: bold;
+      margin: 0.7em;
+      text-align: left;
+
+    }
+
+    button {
+      height: 3em;
+      min-width: 7em;
+      padding: 0.5em 1em;
+      margin: 0.5em 0.5em;
+    }
+
+    input {
+      height: 3em;
+      padding: 0.5em 1em;
+      border-radius: 0.3em;
+      margin: 0.5em 0.5em;
+      width: 100%;
+      max-width: 20em;
+    }
+
+    form {
+      text-align: center;
+      display: block;
+
+      .button {
+        display: block;
+        /* text-align: center; */
+        width: 10em;
+        height: 3em;
+        border-radius: 0.4em;
+        color: white;
+        background-color: #2B8BDF;
+        margin: auto;
+        border: 1px solid #AAAAAA;
+        margin-top: 2em;
+
+        &:hover {
+          background-color: #1682E1;
+        }
+      }
+    }
+  }
+
+  #navigation {
+
+    .nav-button {
+      margin-top: 0.5em;
+      margin-left: 0.5em;
+    }
+    input {
+      height: 2.5em;
+      padding: 0.3em 0.3em;
+      border-radius: 0.3em;
+      margin: 0.5em 0;
+      width: 100%;
+    }
+  }
 }
 
-#content {
-  float: left;
-  background-color: white;
-  height: 100vh;
-  width:55%;
-  margin-top: 0;
-  margin-left: 15%;
-  padding: 1em;
-}
-
-#menu {
-  height: 100vh;
-  width: 15%;
-  float:left;
-  background-color: #000000;
-  padding: 1em;
-}

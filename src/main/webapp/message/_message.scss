@@ -1,0 +1,67 @@
+@import "../mixin";
+
+#message {
+
+  > div {
+    display: block;
+  }
+
+  #answer {
+    border: 1px solid #dcdcdc;
+    color: dimgray;
+    border-radius: 0.3em;
+    padding: 1em;
+    text-align: right;
+    width: 5em;
+    height: 50em;
+  }
+
+
+  > #form-message {
+    > form {
+      > textarea {
+        max-width: 70%;
+        margin-left: 15%;
+        min-width: 70%;
+        min-height: 15em;
+        max-height: 15em;
+      }
+    }
+  }
+
+  > #list {
+    > #message-list {
+
+      margin-top: 6em;
+      list-style: none;
+      padding: 0;
+
+      > .message-item {
+        cursor: pointer;
+        margin-bottom: 1em;
+        padding: 1em;
+        width: 100%;
+        background-color: white;
+        border: 1px solid dimgray;
+
+        > div {
+          display: flex;
+          > .title {
+            flex: 1;
+            @include ellipsis();
+          }
+
+          > .author {
+            max-width: 15em;
+          }
+
+          > .date {
+            width: 6em;
+          }
+        }
+      }
+
+    }
+  }
+
+}
