@@ -1,11 +1,11 @@
 package com.traveldoo.message.dto;
 
 import com.traveldoo.message.Message;
+import com.traveldoo.subject.Subject;
 
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.annotation.XmlType;
-import java.util.List;
 
 /**
  * Created by arnaud on 27/01/2014.
@@ -14,17 +14,16 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class MessageResponseDTO {
 
-    private List<Message> listMessage;
+    private Subject subject;
 
     public MessageResponseDTO() {
     }
 
-
-    public List<Message> getListMessage() {
-        return listMessage;
+    public Subject getSubject() {
+        return subject;
     }
 
-    public void setListMessage(List<Message> listMessage) {
-        this.listMessage = listMessage;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 }

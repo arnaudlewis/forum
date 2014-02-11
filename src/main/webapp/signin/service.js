@@ -2,7 +2,7 @@
  * Created by arnaud on 27/01/2014.
  */
 
-angular.module('app.signin', [])
+angular.module('app.signin', ['angular-md5'])
 
     .service('signinService', ['$rootScope', '$http', function ($rootScope, $http) {
 

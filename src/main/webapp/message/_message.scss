@@ -6,22 +6,42 @@
     display: block;
   }
 
+  > .subject-item {
+    cursor: pointer;
+    margin-bottom: 1em;
+    padding: 1em;
+    display: flex;
+    width: 100%;
+    background-color: rgba(240, 240, 240, 0.8);
+    border: 1px solid dimgray;
+    > .title {
+      flex: 1;
+      @include ellipsis();
+    }
+
+    > .author {
+      max-width: 15em;
+    }
+
+    > .date {
+      width: 6em;
+    }
+  }
+
   #answer {
     border: 1px solid #dcdcdc;
     color: dimgray;
     border-radius: 0.3em;
     padding: 1em;
     text-align: right;
-    width: 5em;
-    height: 50em;
-  }
-
+    width: 7em;
+    }
 
   > #form-message {
     > form {
       > textarea {
         max-width: 70%;
-        margin-left: 15%;
+        margin: 0;
         min-width: 70%;
         min-height: 15em;
         max-height: 15em;
@@ -29,23 +49,27 @@
     }
   }
 
-  > #list {
-    > #message-list {
+  #message-list {
 
-      margin-top: 6em;
-      list-style: none;
-      padding: 0;
+    margin-top: 6em;
+    list-style: none;
+    padding: 0;
 
-      > .message-item {
-        cursor: pointer;
-        margin-bottom: 1em;
-        padding: 1em;
-        width: 100%;
-        background-color: white;
+    .message-item {
+      cursor: pointer;
+      margin-bottom: 1em;
+      width: 100%;
+      background-color: white;
+      border: 1px solid rgba(240,240,240, 0.8);
+
+      > div {
         border: 1px solid dimgray;
-
-        > div {
+        border-radius: 0.5em;
+        margin-bottom: 1em;
+        > .msg-header {
           display: flex;
+          padding: 1em;
+          background-color: lightskyblue;
           > .title {
             flex: 1;
             @include ellipsis();
@@ -59,9 +83,13 @@
             width: 6em;
           }
         }
-      }
 
+        > .msg-body {
+          padding: 1em;
+        }
+      }
     }
+
   }
 
 }

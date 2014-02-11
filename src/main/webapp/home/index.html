@@ -13,7 +13,8 @@
 
     <div id="list">
         <ul id="subject-list">
-            <li class="subject-item" ng-repeat="sub in subjects">
+            <li ng-show="subjects.length < 1" class="no-subject">Aucun sujet existant</li>
+            <li ng-show="subjects.length > 0" class="subject-item" ng-repeat="sub in subjects">
                 <div ng-click="selectSubject(sub)">
                     <div class="title">{{sub.title}}</div>
                     <div class="date">{{sub.creation_date}}</div>

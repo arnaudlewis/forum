@@ -2,8 +2,8 @@
  * Created by arnaud on 21/01/2014.
  */
 
-angular.module('app.login', [])
-    .service('loginService', ['$rootScope', '$http', function ($rootScope, $http) {
+angular.module('app.login', ['angular-md5'])
+    .service('loginService', ['md5', '$rootScope', '$http', function (md5, $rootScope, $http) {
         var login;
         var password;
 
@@ -12,7 +12,7 @@ angular.module('app.login', [])
             $http({
                 method: 'POST',
                 url: "/rest/login/connect",
-                data: {username: username, password: password}
+                data: {username: username, password: md5.createHash(password)}
             }).
                 success(function (data) {
                     $rootScope.connect = data.connect;

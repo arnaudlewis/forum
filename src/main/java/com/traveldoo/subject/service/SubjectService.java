@@ -1,5 +1,6 @@
 package com.traveldoo.subject.service;
 
+import com.traveldoo.message.dataAccess.DaoMessage;
 import com.traveldoo.subject.Subject;
 import com.traveldoo.subject.dataAccess.DaoSubject;
 import com.traveldoo.subject.dto.CreateSubjectRequestDTO;
@@ -24,6 +25,9 @@ public class SubjectService {
     public SubjectResponseDTO listAll() {
         SubjectResponseDTO response = new SubjectResponseDTO();
         List<Subject> liste = DaoSubject.getInstance().findAll();
+        for(int i = 0; i < liste.size(); i++) {
+            liste.get(i).setMessageList(DaoMessage.getInstance().findAllBySubject(liste.get(i)));
+        }
 
         response.setListSubject(liste);
 

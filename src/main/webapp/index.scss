@@ -6,11 +6,12 @@
 body {
   background-color: #dcdcdc;
   height: 100%;
+  min-width: 460px;
 
   #content {
     float: left;
     background-color: white;
-    height: 100vh;
+    min-height: 100vh;
     width: 70%;
     margin-top: 0;
     margin-left: 15%;
@@ -27,10 +28,10 @@ body {
 
     h2 {
       color: dimgray;
-      font-size: 2em;
+      font-size: 2em!important;
       font-weight: bold;
       margin: 2em;
-      text-align: center;
+      text-align: center!important;
 
     }
 

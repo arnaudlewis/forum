@@ -24,7 +24,7 @@ angular.module('app.router', ['ui.router'])
                 }
             })
 
-            .state('main.home.message', {
+            .state('main.message', {
                 url: "/messages",
                 views: {
                     "contentView@": {

@@ -1,17 +1,24 @@
 package com.traveldoo.message.dto;
 
+import com.traveldoo.subject.Subject;
 import org.apache.james.mime4j.field.datetime.DateTime;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.core.MediaType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.Date;
 
 /**
  * Created by arnaud on 10/02/2014.
  */
+
+@Consumes(MediaType.APPLICATION_JSON)
+@XmlType(name = "MessageCreateRequestDTO")
 public class MessageCreateRequestDTO {
 
-    @XmlElement(name="idSubject")
-    private int idSubject;
+    @XmlElement(name="subject")
+    private Subject subject;
     @XmlElement(name="title")
     private String title;
     @XmlElement(name="content")
@@ -23,13 +30,6 @@ public class MessageCreateRequestDTO {
 
     public MessageCreateRequestDTO() {}
 
-    public int getIdSubject() {
-        return idSubject;
-    }
-
-    public void setIdSubject(int idSubject) {
-        this.idSubject = idSubject;
-    }
 
     public String getTitle() {
         return title;
@@ -61,5 +61,13 @@ public class MessageCreateRequestDTO {
 
     public void setId_author(int id_author) {
         this.id_author = id_author;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 }

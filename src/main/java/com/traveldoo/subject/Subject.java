@@ -23,7 +23,7 @@ public class Subject implements Serializable {
     @ManyToOne
     @PrimaryKeyJoinColumn(name="id_user")
     private User author;
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "author")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Message> messageList;
     private boolean resolved;
 

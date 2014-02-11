@@ -6,13 +6,13 @@ import com.traveldoo.message.dto.MessageCreateRequestDTO;
 import com.traveldoo.message.dto.MessageCreateResponseDTO;
 import com.traveldoo.message.dto.MessageRequestDTO;
 import com.traveldoo.message.dto.MessageResponseDTO;
+import com.traveldoo.subject.Subject;
 import com.traveldoo.subject.dataAccess.DaoSubject;
 import com.traveldoo.user.dataAccess.DaoUser;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import java.util.List;
 
 /**
  * Created by arnaud on 27/01/2014.
@@ -20,17 +20,6 @@ import java.util.List;
 
 @Path("message")
 public class MessageService {
-
-    @GET
-    @Path("/list")
-    public MessageResponseDTO listAll(MessageRequestDTO request) {
-        MessageResponseDTO response = new MessageResponseDTO();
-        List<Message> liste = DaoMessage.getInstance().findAllBySubject(DaoSubject.getInstance().find(request.getId_subject()));
-
-        response.setListMessage(liste);
-
-        return response;
-    }
 
     @POST
     @Path("/create")
@@ -41,9 +30,12 @@ public class MessageService {
         msg.setContent(request.getContent());
         msg.setCreation_date(request.getCreationDate());
         msg.setTitle(request.getTitle());
-        msg.setSubject(DaoSubject.getInstance().find(request.getIdSubject()));
+        msg.setSubject(request.getSubject());
 
         response.setId_message(DaoMessage.getInstance().insert(msg));
+        Subject sub = DaoSubject.getInstance().find(request.getSubject().getId_subject());
+        sub.getMessageList().add(msg);
+        response.setSubject(sub);
 
         return response;
     }

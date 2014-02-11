@@ -4,10 +4,10 @@
 
 
 angular.module('app.home')
-    .controller('homeCtrl', ['homeService', '$scope', '$rootScope', '$state', function (homeService, $scope, $rootScope, $state) {
+    .controller('homeCtrl', ['messageService', 'homeService', '$scope', '$rootScope', '$state', function (messageService, homeService, $scope, $rootScope, $state) {
 
         $scope.title = '';
-        homeService.listSubject();
+        $scope.subjects = homeService.listSubject();
 
         $scope.submit = function() {
             var titleSelector = $('#title');
@@ -24,8 +24,9 @@ angular.module('app.home')
         });
 
         $scope.selectSubject = function(sub) {
-            $rootScope.$broadcast('SubjectSelected', sub);
-            $state.go('main.home.message');
+//            $rootScope.$broadcast('SubjectSelected', sub);
+            messageService.setSubjectSelected(sub);
+            $state.go('main.message');
         }
 
     }]);

@@ -4,12 +4,12 @@
 
 angular.module('app.signin')
 
-    .controller('signinCtrl', ['signinService', '$state', '$timeout', '$scope', function (signinService, $state, $timeout, $scope) {
+    .controller('signinCtrl', ['md5', 'signinService', '$state', '$timeout', '$scope', function (md5, signinService, $state, $timeout, $scope) {
 
         $scope.submit = function() {
             var creationDate = new Date();
 
-            signinService.createUser(creationDate, $scope.firstname, $scope.lastname, $scope.username, $scope.password, $scope.age, $scope.email);
+            signinService.createUser(creationDate, $scope.firstname, $scope.lastname, $scope.username, md5.createHash($scope.password), $scope.age, $scope.email);
         }
 
         $scope.$on('failedUserCreation', function(event) {
@@ -22,7 +22,7 @@ angular.module('app.signin')
         $scope.$on('successUserCreation', function(event) {
             $('.alert').remove();
             $('#signin').prepend('<div class="alert alert-success fade in">' +
-                '<strong>Compte enregistré !</strong><br />Vous allez etre redirig&eacute; vers l\'accueil.'+
+                '<strong>Compte enregistr&eacute; !</strong><br />Vous allez etre redirig&eacute; vers l\'accueil.'+
                 '</div>', content.childNodes[0]);
 
             $timeout(function() {

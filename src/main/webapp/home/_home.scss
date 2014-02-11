@@ -8,9 +8,8 @@
 
   > #presentation {
     width: 80%;
-    min-height: 10em;
     margin: 1em 10%;
-    padding: 1em;
+    padding: 2em;
     border-radius: 0.3em;
     border: 1px solid dimgray;
 
@@ -30,6 +29,16 @@
       margin-top: 6em;
       list-style: none;
       padding: 0;
+
+      > .no-subject {
+        cursor: pointer;
+        margin-bottom: 1em;
+        padding: 1em;
+        width: 100%;
+        background-color: white;
+        color: red;
+        border: 1px solid dimgray;
+      }
 
       > .subject-item {
         cursor: pointer;

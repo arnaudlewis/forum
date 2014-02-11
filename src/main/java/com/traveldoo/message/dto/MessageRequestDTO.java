@@ -1,6 +1,5 @@
 package com.traveldoo.message.dto;
 
-
 import com.traveldoo.subject.Subject;
 
 import javax.ws.rs.Consumes;
@@ -9,23 +8,20 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * Created by arnaud on 27/01/2014.
+ * Created by arnaud on 11/02/2014.
  */
-@XmlType(name = "MessageRequestDTO")
 @Consumes(MediaType.APPLICATION_JSON)
+@XmlType(name = "MessageRequestDTO")
 public class MessageRequestDTO {
-    @XmlElement(name="idSubject")
-    private int id_subject;
 
-    public MessageRequestDTO() {
+    @XmlElement(name = "subject")
+    private Subject subject;
+
+    public Subject getSubject() {
+        return subject;
     }
 
-
-    public int getId_subject() {
-        return id_subject;
-    }
-
-    public void setId_subject(int id_subject) {
-        this.id_subject = id_subject;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 }

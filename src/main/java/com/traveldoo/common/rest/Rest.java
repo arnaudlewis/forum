@@ -1,5 +1,6 @@
 package com.traveldoo.common.rest;
 
+import com.traveldoo.message.service.MessageService;
 import com.traveldoo.subject.service.SubjectService;
 import com.traveldoo.user.service.LoginService;
 import com.traveldoo.user.service.UserService;
@@ -15,6 +16,7 @@ public class Rest extends Application {
 		singletons.add(new LoginService());
         singletons.add(new UserService());
         singletons.add(new SubjectService());
+        singletons.add(new MessageService());
 	}
 
 	@Override

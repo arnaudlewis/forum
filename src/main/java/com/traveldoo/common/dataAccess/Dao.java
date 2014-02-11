@@ -13,7 +13,7 @@ import java.util.Map;
 public abstract class Dao<T> {
 
     static Map<String, Object> configOverrides = new HashMap<String, Object>() {{
-        put("hibernate.hbm2ddl.auto", "update");
+        put("hibernate.hbm2ddl.auto", "create");
     }};
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("ForumUnit", configOverrides);
 

@@ -1,21 +1,47 @@
-    <div id="message" ng-controller="messageCtrl">
+<div id="message" ng-controller="messageCtrl">
 
-        <div id="answer" ng-click="answer()"></div>
-        <div id="msglist">
-            <ul id="message-list">
-                <li class="message-item" ng-repeat="msg in messages">
-                    <div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div ng-show="connect === 1" id="form-message">
-            <h3>Répondre</h3>
-            <form ng-submit="submit()">
-                <input type="text" id="title" name="title" ng-model="title" placeholder="titre"/>
-                <textarea type="text" id="content" name="content" ng-model="content" placeholder="Saisir le contenu de votre message..."></textarea>
-                <button class="btn btn-default" type="submit">Valider</button>
-            </form>
-        </div>
+    <div class="subject-item">
+        <div class="title">{{subjectSelected.title}}</div>
+        <div class="date">{{subjectSelected.creation_date}}</div>
+        <div class="author">{{ subjectSelected.author.firstname + ' ' + subjectSelected.author.lastname }}</div>
     </div>
+
+    <div ng-show="connect === 1">
+        <div id="answer" ng-click="answer()">Répondre</div>
+    </div>
+
+    <div id="msglist">
+        <ul id="message-list">
+            <li class="message-item" ng-repeat="msg in subjectSelected.messageList">
+                <div>
+                    <div class="msg-header">
+                        <div class="title">
+                            {{msg.title}}
+                        </div>
+                        <div class="date">
+                            {{msg.creation_date}}
+                        </div>
+                        <div class="author">
+                            {{msg.author.firstname + ' ' + msg.author.lastname }}
+                        </div>
+                    </div>
+                    <div class="msg-body">
+                        {{msg.content}}
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div ng-show="connect === 1" id="form-message">
+        <h3>Répondre</h3>
+
+        <form class="form-horizontal well" ng-submit="submit()">
+            <input type="text" id="title" name="title" ng-model="title" placeholder="titre"/>
+            <textarea type="text" id="msg-content" name="msg-content" ng-model="msgContent"
+                      placeholder="Saisir le contenu de votre message..."></textarea>
+           <div><button class="btn btn-default" type="submit">Valider</button></div>
+        </form>
+    </div>
+</div>
+
